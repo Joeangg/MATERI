@@ -1,0 +1,16 @@
+     h1{
+            color:rgb(185, 42, 116);
+            font-size:40px;
+            font-family:verdana;
+        }
+        p{
+            color:red;
+            font-size:12px;
+            font-family: 'Times New Roman';
+            font-style: italic;
+        }
+        b{
+            font-size:30px;
+            font-style: italic;
+            background-color: rgb(225, 69, 17);
+        }

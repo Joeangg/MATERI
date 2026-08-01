@@ -1,0 +1,31 @@
+/* universal selector */
+*{
+    font-family:arial;
+    background-color:lightblue;
+}
+ /* type selector */
+marquee{
+    border: 10px solid lemonchiffon;
+    color:blue;
+    font-size:30px;
+}
+h2{
+    color:rgb(236, 145, 179);
+    fornt-size:30px;
+}
+/* class selector */
+li.sarapan{
+    color:rgb(193, 122, 234);   
+}
+/* id  slector */
+#maksen{
+    color:pink;
+}
+/*  child selector */
+p>b{
+    color:salmon;
+}
+li>b{
+    color:rgb(238, 211, 104);
+}
+/* decendant selector */

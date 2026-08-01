@@ -1,0 +1,6 @@
+/**
+ * Static
+ */
+public class Static {
+
+}

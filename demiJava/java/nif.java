@@ -8,9 +8,9 @@ class nif {
             if (nilai >= 90) {
                 System.out.println("Nilai A");
             } else if (nilai >= 80) {
-                System.out.println("Nilai B");
+                System.out.println("nilai B");
             } else if (nilai >= 70) {
-                System.out.println("Nilai C");
+                System.out.println("Totalnilai C");
             } else if (nilai >= 60) {
                 System.out.println("Nilai D");
             } else {
