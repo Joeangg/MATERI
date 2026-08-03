@@ -30,3 +30,20 @@ p.p2{
     background-color: hsla(208, 50%, 70%,1);
     padding:10px;
 }
+p.p3 span {
+    font-style: italic;
+}
+p.p3{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    padding:10px;
+    
+}
+p.p3 a{
+    text-decoration: none;
+}
+p.lorem{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    padding:10px;
+}
