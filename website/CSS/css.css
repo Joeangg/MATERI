@@ -32,6 +32,7 @@ p.p2{
 }
 p.p3 span {
     font-style: italic;
+    
 }
 p.p3{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,8 +40,10 @@ p.p3{
     padding:10px;
     
 }
-p.p3 a{
+p.p3 a:hover{
+    color: hsla(201, 100%, 50%, 1);
     text-decoration: none;
+   
 }
 p.lorem{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

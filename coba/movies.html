@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineReview - Daftar Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#E50914', dark: '#141414', card: '#1f1f1f' } } }
+    }
+  </script>
+</head>
+<body class="bg-dark text-white min-h-screen">
+
+  <!-- NAVBAR -->
+  <nav class="bg-black bg-opacity-90 fixed top-0 w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-primary text-2xl font-extrabold tracking-widest">🎬 CineReview</a>
+      <ul class="flex space-x-6 text-sm font-semibold">
+        <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+        <li><a href="movies.html" class="text-primary">Film</a></li>
+        <li><a href="review.html" class="hover:text-primary transition">Review</a></li>
+        <li><a href="reservasi.html" class="hover:text-primary transition">Reservasi</a></li>
+        <li><a href="about.html" class="hover:text-primary transition">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="pt-28 pb-16 px-6 max-w-7xl mx-auto">
+    <h1 class="text-4xl font-extrabold mb-2">Daftar Film</h1>
+    <p class="text-gray-400 mb-8">Telusuri koleksi film dan baca reviewnya.</p>
+
+    <!-- Search & Filter -->
+    <div class="flex flex-col md:flex-row gap-4 mb-10">
+      <input id="searchInput" type="text" placeholder="🔍 Cari film..."
+        class="flex-1 bg-card border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"/>
+      <select id="genreFilter" class="bg-card border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary">
+        <option value="">Semua Genre</option>
+        <option value="Aksi">Aksi</option>
+        <option value="Drama">Drama</option>
+        <option value="Komedi">Komedi</option>
+        <option value="Horor">Horor</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+      </select>
+    </div>
+
+    <!-- Grid Film -->
+    <div id="movieGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Diisi JavaScript -->
+    </div>
+  </div>
+
+  <!-- MODAL DETAIL FILM -->
+  <div id="movieModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center px-4">
+    <div class="bg-card rounded-2xl max-w-2xl w-full p-6 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer class="bg-black text-gray-500 text-center py-6">
+    <p>© 2026 CineReview — Dibuat untuk belajar</p>
+  </footer>
+
+  <script src="js/movies.js"></script>
+  <script src="js/movies-page.js"></script>
+</body>
+</html>

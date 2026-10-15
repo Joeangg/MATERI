@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineReview - Tentang</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#E50914', dark: '#141414', card: '#1f1f1f' } } }
+    }
+  </script>
+</head>
+<body class="bg-dark text-white min-h-screen">
+
+  <nav class="bg-black bg-opacity-90 fixed top-0 w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-primary text-2xl font-extrabold tracking-widest">🎬 CineReview</a>
+      <ul class="flex space-x-6 text-sm font-semibold">
+        <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+        <li><a href="movies.html" class="hover:text-primary transition">Film</a></li>
+        <li><a href="review.html" class="hover:text-primary transition">Review</a></li>
+        <li><a href="reservasi.html" class="hover:text-primary transition">Reservasi</a></li>
+        <li><a href="about.html" class="text-primary">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="pt-28 pb-16 px-6 max-w-4xl mx-auto">
+
+    <!-- Hero -->
+    <div class="text-center mb-16">
+      <div class="text-8xl mb-4">🎬</div>
+      <h1 class="text-5xl font-extrabold mb-4">Tentang <span class="text-primary">CineReview</span></h1>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Platform review film sederhana yang dibuat sebagai bahan belajar HTML, CSS Tailwind, JavaScript, dan PHP.
+      </p>
+    </div>
+
+    <!-- Fitur -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <div class="bg-card rounded-2xl p-6 border border-gray-800">
+        <div class="text-3xl mb-3">🎥</div>
+        <h3 class="text-lg font-bold mb-2">Review Film</h3>
+        <p class="text-gray-400 text-sm">Baca dan tulis ulasan film favoritmu dengan rating bintang.</p>
+      </div>
+      <div class="bg-card rounded-2xl p-6 border border-gray-800">
+        <div class="text-3xl mb-3">▶️</div>
+        <h3 class="text-lg font-bold mb-2">Trailer YouTube</h3>
+        <p class="text-gray-400 text-sm">Tonton trailer langsung dari YouTube menggunakan YouTube iframe API.</p>
+      </div>
+      <div class="bg-card rounded-2xl p-6 border border-gray-800">
+        <div class="text-3xl mb-3">🎟️</div>
+        <h3 class="text-lg font-bold mb-2">Reservasi Tiket</h3>
+        <p class="text-gray-400 text-sm">Pilih film, jadwal, kursi, dan isi data diri untuk reservasi menonton.</p>
+      </div>
+      <div class="bg-card rounded-2xl p-6 border border-gray-800">
+        <div class="text-3xl mb-3">💾</div>
+        <h3 class="text-lg font-bold mb-2">Backend PHP</h3>
+        <p class="text-gray-400 text-sm">Data review dan reservasi disimpan melalui API PHP sederhana.</p>
+      </div>
+    </div>
+
+    <!-- Teknologi -->
+    <div class="bg-card rounded-2xl p-8 border border-gray-800 mb-16">
+      <h2 class="text-2xl font-bold mb-6 border-l-4 border-primary pl-4">Teknologi yang Digunakan</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="bg-dark rounded-xl p-4">
+          <div class="text-3xl mb-2">🌐</div>
+          <p class="font-bold text-sm">HTML5</p>
+          <p class="text-gray-500 text-xs">Struktur halaman</p>
+        </div>
+        <div class="bg-dark rounded-xl p-4">
+          <div class="text-3xl mb-2">🎨</div>
+          <p class="font-bold text-sm">Tailwind CSS</p>
+          <p class="text-gray-500 text-xs">Styling utility-first</p>
+        </div>
+        <div class="bg-dark rounded-xl p-4">
+          <div class="text-3xl mb-2">⚡</div>
+          <p class="font-bold text-sm">JavaScript</p>
+          <p class="text-gray-500 text-xs">Interaktivitas</p>
+        </div>
+        <div class="bg-dark rounded-xl p-4">
+          <div class="text-3xl mb-2">🐘</div>
+          <p class="font-bold text-sm">PHP</p>
+          <p class="text-gray-500 text-xs">Backend API</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info Belajar -->
+    <div class="bg-yellow-900 bg-opacity-30 border border-yellow-700 rounded-2xl p-6">
+      <h3 class="text-yellow-400 font-bold text-lg mb-2">📚 Catatan Belajar</h3>
+      <p class="text-yellow-200 text-sm leading-relaxed">
+        Proyek ini dibuat sebagai bahan belajar. Data film dan review disimpan di <code class="bg-yellow-900 px-1 rounded">localStorage</code> 
+        (sisi klien) untuk kemudahan penggunaan tanpa server. File PHP disediakan sebagai contoh backend nyata 
+        yang bisa digunakan saat belajar lebih lanjut dengan XAMPP atau server lokal.
+      </p>
+    </div>
+  </div>
+
+  <footer class="bg-black text-gray-500 text-center py-6">
+    <p>© 2026 CineReview — Dibuat untuk belajar</p>
+  </footer>
+
+</body>
+</html>

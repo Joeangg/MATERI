@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineReview - Reservasi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#E50914', dark: '#141414', card: '#1f1f1f' } } }
+    }
+  </script>
+</head>
+<body class="bg-dark text-white min-h-screen">
+
+  <nav class="bg-black bg-opacity-90 fixed top-0 w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-primary text-2xl font-extrabold tracking-widest">🎬 CineReview</a>
+      <ul class="flex space-x-6 text-sm font-semibold">
+        <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+        <li><a href="movies.html" class="hover:text-primary transition">Film</a></li>
+        <li><a href="review.html" class="hover:text-primary transition">Review</a></li>
+        <li><a href="reservasi.html" class="text-primary">Reservasi</a></li>
+        <li><a href="about.html" class="hover:text-primary transition">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="pt-28 pb-16 px-6 max-w-3xl mx-auto">
+    <h1 class="text-4xl font-extrabold mb-2">Reservasi Tiket</h1>
+    <p class="text-gray-400 mb-10">Pesan kursi bioskopmu sekarang!</p>
+
+    <!-- Step Indicator -->
+    <div class="flex items-center justify-center mb-10 gap-2 text-sm font-semibold">
+      <div id="step1Ind" class="step-ind bg-primary text-white px-4 py-2 rounded-full">1. Film</div>
+      <div class="text-gray-600">→</div>
+      <div id="step2Ind" class="step-ind bg-gray-700 text-gray-400 px-4 py-2 rounded-full">2. Kursi</div>
+      <div class="text-gray-600">→</div>
+      <div id="step3Ind" class="step-ind bg-gray-700 text-gray-400 px-4 py-2 rounded-full">3. Data Diri</div>
+      <div class="text-gray-600">→</div>
+      <div id="step4Ind" class="step-ind bg-gray-700 text-gray-400 px-4 py-2 rounded-full">4. Konfirmasi</div>
+    </div>
+
+    <!-- STEP 1: Pilih Film & Jadwal -->
+    <div id="step1" class="bg-card rounded-2xl p-6 border border-gray-800 shadow-lg">
+      <h2 class="text-xl font-bold mb-4 text-primary">🎬 Pilih Film & Jadwal</h2>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Film</label>
+          <select id="resFilm" class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary">
+            <option value="">-- Pilih Film --</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Tanggal Tayang</label>
+          <input id="resDate" type="date" class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"/>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Jadwal</label>
+          <select id="resTime" class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary">
+            <option value="13:00">13:00 WIB</option>
+            <option value="15:30">15:30 WIB</option>
+            <option value="18:00">18:00 WIB</option>
+            <option value="20:30">20:30 WIB</option>
+          </select>
+        </div>
+        <button onclick="goStep(2)" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition w-full">
+          Pilih Kursi →
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Pilih Kursi -->
+    <div id="step2" class="bg-card rounded-2xl p-6 border border-gray-800 shadow-lg hidden">
+      <h2 class="text-xl font-bold mb-4 text-primary">🪑 Pilih Kursi</h2>
+      <p class="text-sm text-gray-400 mb-2">Klik kursi untuk memilih. Maksimal 6 kursi.</p>
+      <!-- Layar -->
+      <div class="bg-gray-700 text-center py-2 rounded-lg text-sm text-gray-300 mb-6 tracking-widest">⬛ LAYAR ⬛</div>
+      <!-- Grid Kursi -->
+      <div id="seatGrid" class="grid grid-cols-8 gap-2 mb-6 justify-items-center"></div>
+      <div class="flex gap-4 text-xs text-gray-400 mb-6">
+        <span class="flex items-center gap-1"><span class="inline-block w-4 h-4 bg-gray-600 rounded"></span> Tersedia</span>
+        <span class="flex items-center gap-1"><span class="inline-block w-4 h-4 bg-primary rounded"></span> Dipilih</span>
+        <span class="flex items-center gap-1"><span class="inline-block w-4 h-4 bg-gray-900 border border-gray-700 rounded"></span> Terisi</span>
+      </div>
+      <p class="text-sm mb-4">Kursi dipilih: <span id="selectedSeats" class="text-primary font-bold">-</span></p>
+      <div class="flex gap-4">
+        <button onclick="goStep(1)" class="border border-gray-600 text-gray-300 hover:text-white font-bold py-3 px-6 rounded-full transition flex-1">← Kembali</button>
+        <button onclick="goStep(3)" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition flex-1">Data Diri →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Data Diri -->
+    <div id="step3" class="bg-card rounded-2xl p-6 border border-gray-800 shadow-lg hidden">
+      <h2 class="text-xl font-bold mb-4 text-primary">👤 Data Diri</h2>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Nama Lengkap</label>
+          <input id="resName" type="text" placeholder="Nama lengkap..."
+            class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"/>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Email</label>
+          <input id="resEmail" type="email" placeholder="email@contoh.com"
+            class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"/>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">No. HP</label>
+          <input id="resPhone" type="tel" placeholder="08xxxxxxxxxx"
+            class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"/>
+        </div>
+        <div class="flex gap-4">
+          <button onclick="goStep(2)" class="border border-gray-600 text-gray-300 hover:text-white font-bold py-3 px-6 rounded-full transition flex-1">← Kembali</button>
+          <button onclick="goStep(4)" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition flex-1">Konfirmasi →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Konfirmasi -->
+    <div id="step4" class="bg-card rounded-2xl p-6 border border-gray-800 shadow-lg hidden">
+      <h2 class="text-xl font-bold mb-4 text-primary">✅ Konfirmasi Pesanan</h2>
+      <div id="konfirmasiDetail" class="space-y-3 text-sm text-gray-300 mb-6 bg-dark p-4 rounded-xl"></div>
+      <div class="flex gap-4">
+        <button onclick="goStep(3)" class="border border-gray-600 text-gray-300 hover:text-white font-bold py-3 px-6 rounded-full transition flex-1">← Kembali</button>
+        <button onclick="submitReservasi()" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition flex-1">🎟️ Konfirmasi Reservasi</button>
+      </div>
+      <div id="resMsg" class="mt-4 text-center text-green-400 hidden">
+        🎉 Reservasi berhasil! Tiketmu dikirim ke email.
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-black text-gray-500 text-center py-6">
+    <p>© 2026 CineReview — Dibuat untuk belajar</p>
+  </footer>
+
+  <script src="js/movies.js"></script>
+  <script src="js/reservasi.js"></script>
+</body>
+</html>
