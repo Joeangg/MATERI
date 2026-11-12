@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Cuaca</title>
+    <link rell="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Cuaca hari ini</h1>
+        <form id="Search-form">
+            <input type="text" id="city-input" placeholder="cari kota, misal jakarta" required>
+            <button type="submit">cari</button>
+        </form>
+        <p id="status"class="Status"></p>
+        <selection id="result"class="result hidden">
+            <h2 id="city-name"></h2>
+            <p id="description"></p>
+            <p id="temperature"></p>
+
+            <div class="details">
+                <div><span>terasa seperti</span><strong id="fells-like"></strong></div>
+
+            </div>
+        </selection>
+
+    </main>
+</body>
+</html>
